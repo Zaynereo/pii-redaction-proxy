@@ -1,0 +1,46 @@
+[project]
+name = "pii-redaction-proxy"
+version = "0.1.0"
+description = "Local FastAPI HTTP proxy with deterministic JSON field-path PII redaction"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.32.1",
+    "httpx==0.28.1",
+    "pydantic==2.10.3",
+    "pydantic-settings==2.6.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "pytest-asyncio==0.24.0",
+    "httpx==0.28.1",
+    "ruff==0.8.2",
+    "mypy==1.13.0",
+    "types-jsonschema==4.23.0.20240813",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+plugins = []
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"

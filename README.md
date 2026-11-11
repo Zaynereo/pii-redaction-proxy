@@ -95,7 +95,7 @@ pytest -q
 docker build -t pii-redaction-proxy:local .
 ```
 
-GitHub Actions runs pytest, ruff, mypy, and Docker build on PRs.
+GitHub Actions runs pytest, ruff, mypy, **pip-audit** (strict gate on `requirements.txt`), and Docker build on PRs. See [SECURITY-AUDIT.md](SECURITY-AUDIT.md) for Starlette/FastAPI upgrade evidence.
 
 ## AI assistance disclosure
 

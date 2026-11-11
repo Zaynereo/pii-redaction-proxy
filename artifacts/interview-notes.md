@@ -60,7 +60,7 @@
 20. **Can I set upstream in JSON?** No — `upstream_override_forbidden`.
 21. **What gets logged?** Counts and flags — not bodies.
 22. **Docker user?** Non-root `appuser` in Dockerfile.
-23. **Dependencies?** Pinned in `requirements.txt` / `pyproject.toml`.
+23. **Dependencies?** Pinned in `requirements.txt` / `pyproject.toml`; **Starlette 1.3.1** explicit to clear seven advisories from 0.41.3; CI **`pip-audit --strict`** gate (see `SECURITY-AUDIT.md`).
 24. **How to extend allowlist?** Edit `app/redaction/allowlist.py` + tests + docs.
 25. **Why FastAPI?** Typed models, OpenAPI, async body streaming.
 26. **Forward demo purpose?** Shows redact-then-post pattern without building an open proxy.

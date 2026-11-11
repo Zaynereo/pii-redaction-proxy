@@ -24,10 +24,12 @@ jobs:
         run: mypy app
       - name: Pytest
         run: pytest -q --tb=short
-      - name: Dependency audit (advisory)
+      - name: Install runtime for audit
+        run: pip install -r requirements.txt
+      - name: Dependency audit (gate)
         run: |
           pip install pip-audit==2.7.3
-          pip-audit -r requirements.txt || true
+          pip-audit -r requirements.txt --strict
 
   docker-build:
     runs-on: ubuntu-latest
